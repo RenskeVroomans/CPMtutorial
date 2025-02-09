@@ -1,0 +1,13 @@
+#ifndef IOHeader
+#define IOHeader
+
+#include "Header.hh"
+#include "Misc.hh"
+
+int ReadPars(int argc, char* argv[]);
+// char despath[500];
+// int NrGenerations;
+// int seedinitpop;
+// int seedmutations=9;
+// int seedoutput=11;
+#endif

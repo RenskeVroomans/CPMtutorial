@@ -1,0 +1,79 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,calc,amssymb,graphicx}
+\usepackage{tcolorbox}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+% Text layout
+\topmargin -2.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 15cm 
+\textheight 23cm
+
+%opening
+\title{Exercises CPM\\ \large Course Seignosse 2018, day 4}
+\author{Renske Vroomans}
+\date{}
+
+\begin{document}
+
+\maketitle
+%\section*{Introduction}
+These exercises are meant to give you an intuition about the dynamics of the CPM. Feel free to explore any of the parameters of the model as much as you like, to see how they influence the behaviour.
+The questions are just there to guide you to some interesting places.
+
+\section*{Getting started}
+\subsection*{Linux basics}
+If Linux is new to you, using the terminal may be quite daunting. Here are some handy commands to get you started:
+\begin{itemize}
+ \item \texttt{cd} \textit{dirname} ~~ will move you into this directory (cd=``change directory'') Press tab after \texttt{cd} to see options and to autocomplete the dirname. \texttt{cd} .. will move you to a higher directory, and just \texttt{cd} will take you to the home dir.
+ \item \texttt{ls}  ~~ lists the files in the current directory.
+ \item \texttt{gedit} \textit{textfilename}  ~~ will open a simple editor (handy for parameter files). If the file does not exist, it will create it for you (don't forget to save).
+  \item \texttt{mkdir} \textit{name}  ~~ make a new directory.
+  \item \texttt{rm} \textit{filename} ~~ remove file. Be careful with this command: files that are removed this way irretrievable.  \texttt{rm *} will remove all files in the current directory, so be mindful of what you type.
+
+  \item for more handy commands, see \texttt{https://www.makeuseof.com/tag/\\an-a-z-of-linux-40-essential-commands-you-should-know/}
+ \end{itemize}
+\subsection*{Compiling and running the program}
+The code you are working with was mostly written by me and Prof. ten Tussscher for personal use, and is therefore very basic. For the questions in this tutorial, you will only have to modify flags and parameters in the parameter file, and look at the pictures of the simulation.
+You are of course welcome to dig into the code if you feel like; there are pointers at the end to get you going with that.\\
+\\
+Let's assume you already have a Linux Virtual Machine up and running. The code depends on a few non-standard libraries, to get them, type the following in the terminal:
+\begin{verbatim}
+sudo apt-get install libgsl0-dev libboost-all-dev freeglut3-dev libpng-dev 
+\end{verbatim}
+To compile the code, simply type ``make'' (without quotation marks) into the terminal. Then run it as follows:
+\begin{verbatim}
+./bin/CPM -d DIRNAME -s SEED parfile.cfg
+\end{verbatim}
+Where for DIRNAME you should substitute a nice name; this is the directory in which the pictures of your simulation will end up. If you rerun the program with the same DIRNAME, it's best to first remove the pictures that are already in there (type \texttt{rm -rf DIRNAME/*}). For SEED, substitute any integer number. Change it once in a while to see differences between simulations!\\
+\\
+To see the results of your simulations, you can either look at individual frames in DIRNAME, or browse through all of them with the following command:
+\begin{verbatim}
+eog DIRNAME/
+\end{verbatim}
+Use the left/right arrow keys to browse through the pictures, and keep the right arrow key pressed to get a sort of movie of your simulation.
+
+\section{Differential Adhesion}
+\subsection{One cell type}
+\begin{itemize}
+ \item Open the parameter file, and make sure \texttt{NrCellTypes} and \texttt{InitNrCells} are set to 1. Run the simulation with different \texttt{temperature} and \texttt{labdavol} values, and observe the differences.
+ \item Change the \texttt{Jcell1med} parameter, while keeping \texttt{temperature} and \texttt{labdavol} constant. What changes?
+ \item Add more cells (say 50), and change \texttt{Jcell1cell1}. Do you see the difference when it is larger or smaller than \texttt{Jcell1med*2}? How do these dynamics depend on \texttt{temperature}?
+ \item There is an option to spread cells randomly in the grid: set \texttt{CellPlace} to 0, then set \texttt{Jcell1cell1} $<$ \texttt{Jcell1med*2}. Do you get the same configuration as before? Add more cells, how does that change things?
+ \item \textbf{extra: surfacearea constraint} Set \texttt{InitNrCells} back to 1, \texttt{surfaceconstraint} to 1 and \texttt{labdasurf} too. Change \texttt{targetsurface}. What changes? Make sure to \texttt{surfaceconstraint} back to 0 before proceeding.
+\end{itemize}
+
+\subsection{Two cell types}
+The dynamics now depend on more parameters: \texttt{Jcell1cell1}, \texttt{Jcell1cell2}, \texttt{Jcell2cell2}, and the J values of the two celltypes with the medium. Don't set the temperature too low: between 10 and 20 is typically ok. Start with a clumped configuration and \texttt{NrCellTypes}=2.
+\begin{itemize}
+ \item First change \texttt{Jcell1cell2} while keeping \texttt{Jcell1med} and \texttt{Jcell2med} equal, and \texttt{Jcell1cell1} and \texttt{Jcell2cell2} too (smaller than \texttt{Jcell1med*2}). When does the behaviour change?
+ \item Now make \texttt{Jcell1cell1} smaller than \texttt{Jcell2cell2} and \texttt{Jcell1cell2}. Make sure you run it for long enough, and try both \texttt{Jcellcell2} $<$ \texttt{Jcell1cell2} and vice versa.
+\end{itemize}
+
+\subsection{Three cell types}
+With three cell types, there are even more J values to play around with. Try different combinations and see what you find. If necessary, run for longer to get closer to the equilibrium distribution.
+
+
+\end{document}

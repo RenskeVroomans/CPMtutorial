@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{About me}{2}{0}{1}
+\beamer@sectionintoc {2}{Prelude}{6}{0}{2}
+\beamer@sectionintoc {3}{Basic CPM}{9}{0}{3}

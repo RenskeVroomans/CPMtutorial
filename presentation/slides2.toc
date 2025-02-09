@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{Discussion of exercises 1}{1}{0}{1}
+\beamer@sectionintoc {2}{Application of diff. adhesion}{5}{0}{2}
+\beamer@sectionintoc {3}{Persistent migration}{11}{0}{3}

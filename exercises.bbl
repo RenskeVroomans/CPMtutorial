@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{Birkhauser}
+A.~R.~A. Anderson, M.~A.~J. Chaplain, and K.~A. Rejniak, editors.
+\newblock {\em Single-Cell-Based Models in Biology and Medicine}.
+\newblock Birkh{\"a}user Verlag, Basel, 2007.
+
+\bibitem{Glazier1993}
+James~A. Glazier and Fran\c{c}ois Graner.
+\newblock Simulation of the differential adhesion driven rearrangement of
+  biological cells.
+\newblock {\em Phys. Rev. E}, 47:2128--2154, Mar 1993.
+
+\bibitem{Graner1992}
+Fran\c{c}ois Graner and James~A. Glazier.
+\newblock Simulation of biological cell sorting using a two-dimensional
+  extended {Potts} model.
+\newblock {\em Phys. Rev. Lett.}, 69:2013--2016, Sep 1992.
+
+\bibitem{Magno2015}
+Ramiro Magno, Ver\^{o}nica~A. Grieneisen, and Athanasius~F.M. Mar\'{e}e.
+\newblock The biophysical nature of cells: potential cell behaviours revealed
+  by analytical and computational studies of cell surface mechanics.
+\newblock {\em BMC Biophysics}, 2015.
+
+\end{thebibliography}

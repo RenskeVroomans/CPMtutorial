@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{Discussion}{1}{0}{1}
+\beamer@sectionintoc {2}{T cells in lymph nodes}{3}{0}{2}
+\beamer@sectionintoc {3}{Moving to EvoDevo}{16}{0}{3}
+\beamer@sectionintoc {4}{Animal segmentation}{22}{0}{4}
+\beamer@sectionintoc {5}{CPM in EvoDevo}{38}{0}{5}
+\beamer@sectionintoc {6}{Wrapping up}{43}{0}{6}

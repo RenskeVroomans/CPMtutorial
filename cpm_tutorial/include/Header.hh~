@@ -1,0 +1,100 @@
+#ifndef GeneralHeader
+#define GeneralHeader
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "dSFMT.h"
+#include <gsl/gsl_blas.h>
+#include <gsl/gsl_eigen.h>
+#include <gsl/gsl_complex.h>
+#include <gsl/gsl_matrix.h>
+#include <cmath>
+#include <list> 
+#include <vector>
+#include <set>
+#include <map>
+#include <iterator>
+#include <algorithm>
+#include <ext/numeric>
+#include <boost/utility.hpp>
+#include <iostream>
+#include <fstream>
+#include <cstdio>
+#include <stdlib.h> 
+#include <cctype>
+#include <sstream>
+
+#define TRUE 1
+#define FALSE 0
+
+
+#define RUN
+//#define INITGENOME
+
+#define SUMINTEGRATION
+
+typedef struct POSITION{
+  int xx;
+  int yy;
+}Position;
+
+typedef struct FPOSITION{
+  double xx;
+  double yy;
+}FPosition;
+
+using namespace std;
+using namespace __gnu_cxx;
+
+
+extern char despath[500];
+
+extern int NrGenerations;
+extern int seedinitpop;
+extern int seedmutations;
+extern int seedoutput;
+
+
+#if defined(INITGENOME) || defined(RERUNINITGENOME)
+//#ifdef INITGENOME
+extern char genomefile[500];
+#endif
+
+//const char despath[]="testrun";
+// const int NrGenerations=2;
+// const int seedinitpop=389;
+// const int seedmutations=9;
+// const int seedoutput=11;
+
+const int NrGeneTypes=16;
+const int NrSignGeneTypes=2;
+const int NrMatGeneTypes=2;
+const int LockKeyPairs=0;
+const int maxJ=60;
+const int InitGene1=2;
+const int InitGene2=3;
+const int GrowGene=NrSignGeneTypes+NrMatGeneTypes+1;
+const int Jlock1=NrSignGeneTypes+NrMatGeneTypes+2;
+const int Jlock2=NrSignGeneTypes+NrMatGeneTypes+3;
+const int Jlock3=NrSignGeneTypes+NrMatGeneTypes+4;
+const int Jlock4=NrSignGeneTypes+NrMatGeneTypes+5;
+const int Jkey1=NrSignGeneTypes+NrMatGeneTypes+6;
+const int Jkey2=NrSignGeneTypes+NrMatGeneTypes+7;
+const int Jkey3=NrSignGeneTypes+NrMatGeneTypes+8;
+const int Jkey4=NrSignGeneTypes+NrMatGeneTypes+9;
+const int Jgene=NrSignGeneTypes+NrMatGeneTypes+10;
+
+extern dsfmt_t dsfmt;
+inline double uniform() { return dsfmt_genrand_close_open(&dsfmt); }
+
+const int randlength=10000000;
+extern double randarray[randlength];
+extern int randloc;
+extern int startloc[10];
+
+
+#endif
+
+
